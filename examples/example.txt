@@ -55,3 +55,25 @@ absolute left-1/2 -translate-x-1/2 -top-1.5 w-2 h-2
   ))}
 </div>
 
+
+
+<div className="relative w-[60px] h-[60px] overflow-hidden rounded group">
+  <img
+    src={previews[idx]}
+    alt="preview"
+    className="w-full h-full object-cover rounded group-hover:brightness-110 transition duration-300"
+  />
+
+  <button
+    className="absolute top-[-6px] right-[-6px] w-5 h-5 flex items-center justify-center 
+               bg-black text-white rounded-full hover:bg-gray-800"
+    onClick={() => {
+      setSelectedFiles((prev) => prev.filter((_, i) => i !== idx));
+      setPreviews((prev) => prev.filter((_, i) => i !== idx));
+    }}
+  >
+    <X size={12} />
+  </button>
+</div>
+
+

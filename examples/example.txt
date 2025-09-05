@@ -10,3 +10,6 @@
 className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden group-hover:block 
              bg-black text-white text-xs px-3 py-2 rounded shadow text-center 
              w-full max-w-sm"
+
+
+<div className="absolute left-1/2 -translate-x-1/2 top-full w-2 h-2 bg-black rotate-45"></div>

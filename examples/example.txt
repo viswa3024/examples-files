@@ -18,3 +18,40 @@ className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden group-hover:block
 
 
 absolute left-1/2 -translate-x-1/2 -top-1.5 w-2 h-2 
+
+
+
+<div className="flex flex-wrap gap-3 bg-gray-100 p-2 rounded-lg">
+  {selectedFiles.map((file, idx) => (
+    <div
+      key={idx}
+      className="flex items-center gap-2 p-2"
+    >
+      <div className="relative w-[60px] h-[60px]">
+        {previews[idx] ? (
+          <img
+            src={previews[idx]}
+            alt="preview"
+            className="w-full h-full object-cover rounded"
+          />
+        ) : (
+          <FileText size={32} className="text-gray-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        )}
+
+        {/* Circle X button on image corner */}
+        <button
+          className="absolute top-[-6px] right-[-6px] w-5 h-5 flex items-center justify-center 
+                     bg-black text-white rounded-full hover:bg-gray-800"
+          onClick={() => {
+            setSelectedFiles((prev) => prev.filter((_, i) => i !== idx));
+            setPreviews((prev) => prev.filter((_, i) => i !== idx));
+          }}
+        >
+          <X size={12} />
+        </button>
+      </div>
+
+    </div>
+  ))}
+</div>
+

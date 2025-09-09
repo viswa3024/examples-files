@@ -8,3 +8,23 @@
     }}
   />
 </div>
+
+
+
+
+.img-zoom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.375rem; /* same as Tailwind's rounded */
+  transform-origin: center;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: transform 300ms, filter 300ms;
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.02);
+  filter: brightness(1.02);
+}
+

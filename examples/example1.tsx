@@ -30,3 +30,9 @@
 
 
 import { ReactComponent as CloseIcon } from "assets/xicon.svg";
+
+
+  handleDownload(
+              "https://picsum.photos/200/200", // random public image
+              "test-image.jpg"
+            )

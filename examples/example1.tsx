@@ -28,3 +28,5 @@
   filter: brightness(1.02);
 }
 
+
+import { ReactComponent as CloseIcon } from "assets/xicon.svg";

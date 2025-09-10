@@ -36,3 +36,33 @@ import { ReactComponent as CloseIcon } from "assets/xicon.svg";
               "https://picsum.photos/200/200", // random public image
               "test-image.jpg"
             )
+
+
+
+
+// utils/axiosInstance.ts
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "/api",
+  validateStatus: () => true, // keep all HTTP statuses in try
+});
+
+// Interceptor: catch network/CORS errors and turn them into fake response
+api.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    if (err.message === "Network Error" && !err.response) {
+      return Promise.resolve({
+        status: 0,
+        data: { message: "🌐 CORS/Network error" },
+        headers: {},
+        config: err.config,
+      });
+    }
+    return Promise.reject(err);
+  }
+);
+
+export default api;
+

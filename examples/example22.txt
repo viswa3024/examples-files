@@ -1,0 +1,15 @@
+https://www.linkedin.com/pulse/embedding-power-bi-react-application-senthil-gopal-mvtdc
+
+https://www.mayainsights.com/guides/how-to-embed-power-bi-report-in-web-application/
+
+
+https://dev.to/cristiancavelasquez/embedding-a-power-bi-dashboard-a-secure-and-simple-solution-1i9i
+
+
+https://www.linkedin.com/posts/md-mahfujul-hoque-0a0875254_powerbi-webdevelopment-nextjs-activity-7326092164642340864-SeAs
+
+
+https://stackoverflow.com/questions/46350923/powerbi-embed-dashboard-using-javascript
+
+
+https://www.youtube.com/watch?v=A5KFY5Jh1Uc

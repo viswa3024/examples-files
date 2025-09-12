@@ -49,3 +49,27 @@ const ChatImage = ({
     </div>
   );
 };
+
+
+
+==================
+
+
+  const ChatImage = ({ src, handleDownload }) => {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    // If image is cached, mark loaded immediately
+    const img = imageRef.current;
+    if (img?.complete && img.naturalWidth) setLoaded(true);
+  }, [src]);
+
+  return (
+    <div className="...">
+      <img ref={imageRef} src={src} onLoad={() => setLoaded(true)} onError={() => setError(true)} />
+      {loaded && !error && <button onClick={() => handleDownload(src)}>⬇️</button>}
+    </div>
+  );
+};
+

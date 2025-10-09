@@ -125,3 +125,10 @@ export default function MarkdownViewer() {
   );
 }
 
+
+  return new Response(markdown, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });

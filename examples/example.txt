@@ -144,3 +144,28 @@ export default function MarkdownViewer() {
   font-size: unset;
   font-weight: unset;
 }
+
+
+.markdown-container h1 {
+  @apply text-4xl font-bold mt-4 mb-4;
+}
+
+.markdown-container h2 {
+  @apply text-3xl font-semibold mt-4 mb-3;
+}
+
+.markdown-container h3 {
+  @apply text-2xl font-semibold mt-3 mb-2;
+}
+
+.markdown-container h4 {
+  @apply text-xl font-medium mt-2 mb-2;
+}
+
+.markdown-container h5 {
+  @apply text-lg font-medium mt-2 mb-2;
+}
+
+.markdown-container h6 {
+  @apply text-base font-medium mt-1 mb-1;
+}

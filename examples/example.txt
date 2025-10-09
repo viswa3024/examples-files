@@ -1,0 +1,6 @@
+npm install marked dompurify
+
+npm install @tailwindcss/typography
+tailwind.config.ts:
+
+plugins: [require("@tailwindcss/typography")],

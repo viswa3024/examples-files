@@ -169,3 +169,6 @@ export default function MarkdownViewer() {
 .markdown-container h6 {
   @apply text-base font-medium mt-1 mb-1;
 }
+
+
+![Beautiful Landscape](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80)

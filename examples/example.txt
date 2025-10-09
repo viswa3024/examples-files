@@ -4,3 +4,65 @@ npm install @tailwindcss/typography
 tailwind.config.ts:
 
 plugins: [require("@tailwindcss/typography")],
+
+
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          DEFAULT: "#2563eb", // optional custom brand color (blue-600)
+          light: "#3b82f6",
+          dark: "#1e40af",
+        },
+      },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: "none", // prevents markdown text from shrinking too much
+            color: theme("colors.gray.800"),
+            h1: {
+              color: theme("colors.gray.900"),
+              fontWeight: "700",
+              fontSize: "1.875rem",
+            },
+            h2: {
+              color: theme("colors.gray.900"),
+              fontWeight: "600",
+            },
+            h3: {
+              color: theme("colors.gray.900"),
+              fontWeight: "600",
+            },
+            strong: { color: theme("colors.gray.900") },
+            a: {
+              color: theme("colors.brand.DEFAULT"),
+              textDecoration: "underline",
+              "&:hover": { color: theme("colors.brand.dark") },
+            },
+            code: {
+              backgroundColor: theme("colors.gray.100"),
+              color: theme("colors.pink.600"),
+              padding: "2px 4px",
+              borderRadius: "4px",
+              fontSize: "0.875rem",
+            },
+            "pre code": {
+              backgroundColor: "transparent",
+            },
+          },
+        },
+      }),
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+};
+
+export default config;

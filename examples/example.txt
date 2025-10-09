@@ -132,3 +132,15 @@ export default function MarkdownViewer() {
       "Content-Type": "text/plain",
     },
   });
+
+
+/* globals.css or component css */
+.markdown-container h1,
+.markdown-container h2,
+.markdown-container h3,
+.markdown-container h4,
+.markdown-container h5,
+.markdown-container h6 {
+  font-size: unset;
+  font-weight: unset;
+}

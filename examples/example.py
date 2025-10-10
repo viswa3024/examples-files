@@ -63,3 +63,50 @@ def chat_model(request: ModelRequest):
     # Otherwise, return a random markdown
     response = random.choice(simple_markdowns)
     return ModelResponse(markdown_response=response)
+
+
+
+=========
+
+
+import re
+
+def is_markdown_regex(s: str) -> bool:
+    patterns = [
+        r"^#{1,6}\s",       # headings
+        r"^- ",             # list item
+        r"\*\*.*\*\*",      # bold
+        r"_.*_",            # italic
+        r"!\[.*\]\(.*\)",   # image
+        r"\|.*\|",          # table
+        r"```.*```",        # code block
+    ]
+    return any(re.search(p, s, re.MULTILINE) for p in patterns)
+
+
+
+===================
+
+
+def is_markdown(s: str) -> bool:
+    markdown_indicators = [
+        "#",       # heading
+        "##",      # subheading
+        "- ",      # unordered list
+        "* ",      # unordered list
+        "```",     # code block
+        "|",       # table
+        "![",      # image
+        "[",       # link
+        "**",      # bold
+        "_",       # italic
+    ]
+    return any(token in s for token in markdown_indicators)
+
+
+if is_markdown(random_response):
+    # Treat as markdown → generate dashboard
+    response = dashboard_markdown
+else:
+    # Normal text
+    response = random_response

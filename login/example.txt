@@ -1,0 +1,44 @@
+docker run --rm \
+  -e 'NEXT_PUBLIC_STATIC_USERS=[{"email":"john@example.com","password":"12345"},{"email":"sara@i2c.com","password":"welcome"},{"email":"mike@demo.com","password":"pass123"},{"email":"emma@career.com","password":"career@2025"},{"email":"admin@i2c.com","password":"admin123"}]' \
+  --name myapp \
+  myimage:latest
+
+
+NEXT_PUBLIC_STATIC_USERS=[{"email":"john@example.com","password":"12345"},{"email":"sara@i2c.com","password":"welcome"},{"email":"mike@demo.com","password":"pass123"},{"email":"emma@career.com","password":"career@2025"},{"email":"admin@i2c.com","password":"admin123"}]
+
+
+docker run --env-file .env --name myapp myimage:latest
+
+
+echo -n '[{"email":"john@example.com","password":"12345"},...]' | base64
+
+
+
+kubectl create configmap static-users \
+  --from-literal=NEXT_PUBLIC_STATIC_USERS='[{"email":"john@example.com","password":"12345"},{"email":"sara@i2c.com","password":"welcome"},{"email":"mike@demo.com","password":"pass123"},{"email":"emma@career.com","password":"career@2025"},{"email":"admin@i2c.com","password":"admin123"}]'
+
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: myimage:latest
+        env:
+        - name: NEXT_PUBLIC_STATIC_USERS
+          valueFrom:
+            configMapKeyRef:
+              name: static-users
+              key: NEXT_PUBLIC_STATIC_USERS
